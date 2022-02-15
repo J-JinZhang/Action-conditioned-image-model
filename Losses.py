@@ -298,7 +298,7 @@ class Perceptual():
             loss[i] = (i+1)*self.loss_func(fake_feats, real_feats)
             loss_val = torch.sum(loss)"""
             
-        # single-sclae
+        # single-scale
         real_feats = self.feats_model(real_samps)
         fake_feats = self.feats_model(fake_samps)
         loss_val = self.loss_func(fake_feats, real_feats)
