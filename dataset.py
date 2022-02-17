@@ -17,10 +17,9 @@ import os
 
 import matplotlib.pyplot as plt
 
-#定义一个数据集
+
 class Data4StatusModel(Dataset):
     def __init__(self, root, csv_file):
-        """实现初始化方法，在初始化的时候将数据读载入"""
         # '/media/neuralits/Data_SSD/FrothData/XRFImgData4FeedRegression.csv'
         # csv_file = '/media/neuralits/Data_SSD/FrothData/XRFImgData4FrothStatusModel.csv'
         self.length = 3
