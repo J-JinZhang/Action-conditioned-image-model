@@ -1,4 +1,9 @@
-__author__ = 'Jin Zhang'
+ 
+"""
+Author: Dr. Jin Zhang 
+E-mail: j.zhang.vision@gmail.com
+Created on 2022.02.01
+"""
 
 
 import torch
