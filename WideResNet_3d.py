@@ -12,12 +12,10 @@ class BasicBlock(nn.Module):
 
     def __init__(self, in_planes, out_planes, stride=1, convShortCut=None):
         super(BasicBlock, self).__init__()
-        # 若in_planes为out_planes的expansion倍，则conv1起到通道减半的作用
         self.conv1 = nn.Conv3d(in_planes, out_planes, kernel_size=1, bias=False)
         self.bn1 = nn.BatchNorm3d(out_planes)
         self.conv2 = nn.Conv3d(out_planes, out_planes, kernel_size=3, stride=stride, padding=1, bias=False)
         self.bn2 = nn.BatchNorm3d(out_planes)
-        # 若in_planes为out_planes的expansion倍，则conv1起到还原输入通道数的作用
         self.conv3 = nn.Conv3d(out_planes, out_planes * self.expansion, kernel_size=1, bias=False)
         self.bn3 = nn.BatchNorm3d(out_planes * self.expansion)
         self.relu = nn.ReLU(inplace=True)
@@ -87,7 +85,7 @@ class WideResNet(nn.Module):
         layers.append(block(self.in_planes, out_planes, stride, convShortCut))
         self.in_planes = out_planes * block.expansion
         for i in range(1, num_layer):
-            layers.append(block(self.in_planes, out_planes)) #每次调用_make_layer()，outplanes不变
+            layers.append(block(self.in_planes, out_planes))
 
         return nn.Sequential(*layers)
 
