@@ -286,7 +286,7 @@ class PixelwiseL1():
 class Perceptual():
     def __init__(self, feats_model):
         self.feats_model = feats_model
-        self.loss_func = torch.nn.MSELoss()  # 有梯度的在前
+        self.loss_func = torch.nn.MSELoss()
         self.loss_func = self.loss_func.cuda()
     
     def gen_loss(self, real_samps, fake_samps):
